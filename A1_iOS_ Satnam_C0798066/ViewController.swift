@@ -77,6 +77,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
         tapGesture.numberOfTapsRequired = 2
         map.addGestureRecognizer(tapGesture)
     }
+    //view did load ends
     
     // for functionality of gesture
     @objc func addingLocationsWithGesture(_ gestureRecognizer : UIGestureRecognizer){
@@ -152,6 +153,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
             addingLocationsWithGesture(gestureRecognizer)
         }
     }
+    //gesture code ends
     
     func addingLocationToArray(position:Int,coordinate:CLLocationCoordinate2D)  {
         //adding location to place array
@@ -190,6 +192,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
         }
     }
     
+    // this button draw polyline between locations
     @IBAction func trackingButton(_ sender: Any) {
         //this will remove all the overlays
         map.removeOverlays(map.overlays)
@@ -242,10 +245,10 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
                 annotation.coordinate = coordinateArray[pointCounts/2]
                 self.map.addAnnotation(annotation)
                
-                
             }
         }
     }
+    //drawing polyline function ends
     
     //this function is called whenever user location is changed
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
